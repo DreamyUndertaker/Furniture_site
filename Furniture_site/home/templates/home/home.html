@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block header %}
-    <div class="container" style="padding-bottom: 20px; border-bottom: 3px solid black; ">
+    <div class="container-fluid" style="padding-bottom: 20px; border-bottom: 3px solid black; max-width: 1440px;">
         <div class="row align-items-center">
             <div class="headerSearch col-5" >
                 <i class="fa fa-search w3-xxlarge" class="rounded float-start"></i>
@@ -16,11 +16,11 @@
             </div>
             <div class="headerProfile-person col-1">
                 <!-- <img src="{% static 'home/img/user.png' %}" alt=""> -->
-                <a href=""><i class="glyphicon glyphicon-menu-hamburger w3-xxlarge rounded float-end"></i></a>
+                <a href="{% url 'db' %}"><i class="glyphicon glyphicon-menu-hamburger w3-xxlarge rounded float-end"></i></a>
             </div>
         </div>
     </div>
-    <div class="container" style="padding-top: 10px;">
+    <div class="container-fluid" style="padding-top: 10px; max-width: 1440px;">
         <div class="row align-items-center">
             <div class="headerNav-plantPots col fs-3">
                 <p>
@@ -56,33 +56,98 @@
     </div>
 {% endblock %}
 {% block content %}
-<div class="container">
+<div class="container-fluid" style="max-width: 1465px;">
     <div class="row">
         <div class="col">
-            <img src="{% static 'home/img/content.png' %}" alt="" class="rounded float-center">
+            <img src="{% static 'home/img/content.png' %}" alt="" class="rounded mx-auto d-block" style="padding-top: 20px; padding-bottom: 20px;">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <img src="{% static 'home/img/Email-sign-up.png' %}" alt="" class="rounded mx-auto d-block">
         </div>
     </div>
 </div>
 {% endblock %}
 {% block footer %}
-<div class="container" style="padding-top: 50px; background-color: #2A254B; color: aliceblue; padding-left: 20px; max-width: 65%;">
-    <div class="col fs-4">
-        <div class="row">
-            <p>Новые поставки</p>
-        </div>
-        <div class="row">
-            <p>Часто продаваемое</p>
-        </div>
-        <div class="row">
-            <p>Часто просматриваемое</p>
-        </div>
-        <div class="row">
-            <p>Популярное на неделе</p>
-        </div>
-        <div class="row">
-            <p>Весь ассортимент</p>
-        </div>
 
+<div class="container-fluid fs-4" style="padding-top: 50px; background-color: #2A254B; color: aliceblue; padding-left: 80px; max-width: 1440px; padding-bottom: 40px;">
+    <div class="col">
+        <div class="row">
+            <div class="col fs-1">
+                <p>Меню</p>
+            </div>
+            <div class="col fs-1">
+                <p>Категории</p>
+            </div>
+            <div class="col fs-1">
+                <p>Наша компания</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Новые поставки</p>
+            </div>
+            <div class="col">
+                <p>Посуда</p>
+            </div>
+            <div class="col">
+                <p>О нас</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Часто продаваемое</p>
+            </div>
+            <div class="col">
+                <p>Мебель</p>
+            </div>
+            <div class="col">
+                <p>Вакансии</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Часто просматриваемое</p>
+            </div>
+            <div class="col">
+                <p>Товары для дома</p>
+            </div>
+            <div class="col">
+                <p>Связаться с нами</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Популярное на неделе</p>
+            </div>
+            <div class="col">
+                <p>Горшки для растений</p>
+            </div>
+            <div class="col">
+                <p>Конфиденциальность</p>
+            </div>
+        </div>
+        <div class="row" style="padding-bottom: 10px;">
+            <div class="col">
+                <p>Весь ассортимент</p>
+            </div>
+            <div class="col">
+                <p>Стулья</p>
+            </div>
+            <div class="col">
+                <p>Политика возврата</p>
+            </div>
+        </div>
+        <div class="row" style="border-top: 2px solid white; padding-top: 25px; max-width: 90%;" >
+            <div class="col align-items-start fs-3" style="padding-top: 10px;">
+                <p>Copyright 2022 Avion LTD</p>
+            </div>
+            <div class="col align-items-end">
+                <img src="{% static 'home/img/SocialLinks.png' %}" alt="" class=" rounded float-end">
+            </div>
+        </div>
     </div>
 </div>
+
 {% endblock %}

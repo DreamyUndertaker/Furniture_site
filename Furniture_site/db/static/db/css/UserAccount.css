@@ -1,0 +1,127 @@
+@media (min-width: 720px) {
+    body{
+        display: grid;
+        grid-template-areas: 
+        "headerNav"
+        "content";
+        max-width: 1000px;
+        margin: auto;
+    }
+    .headerNav{
+        display: grid;
+        grid-template-areas: "headerNavLogo headerNavSignin-link";
+        grid-area: headerNav;
+        color: aliceblue;
+        align-items: center;
+        align-self: center;
+        justify-items: center;
+        justify-content: center;
+        align-content: center;
+    }
+    .headerNavLogo{
+        grid-area: headerNavLogo;
+        width: 500%;
+    }
+    .headerNavLogo img{
+        height: 30px;
+        width: 100px;
+    }
+    .headerNavSignin-link{
+        grid-area: headerNavSignin-link;
+        text-align: center;
+        text-decoration: none;
+    }
+    .requestForm{
+        display: grid;
+        padding-top: 40px;
+        grid-template-areas: "ArticleForm PersonForm"
+        "DepositesForm ClientsForm"
+        "ExchangeRatesForm DepositsRegistrationForm";
+        max-width: min-content;
+        background-color: burlywood;
+        margin: auto;
+        align-self: center;
+        justify-items: center;
+        justify-content: center;
+        align-content: center;
+        grid-gap: 15px;
+    }
+    .ArticleForm{
+        grid-area: ArticleForm;
+    }
+    .PersonForm{
+        grid-area: PersonForm;
+    }
+    .DepositesForm{
+        grid-area: DepositesForm;
+    }
+    .ClientsForm{
+        grid-area: ClientsForm;
+    }
+    .ExchangeRatesForm{
+        grid-area: ExchangeRatesForm;
+    }
+    .DepositsRegistrationForm{
+        grid-area: DepositsRegistrationForm;
+    }
+}
+@media (max-width: 720px){
+    body{
+        display: grid;
+        grid-template-areas: 
+        "headerNav"
+        "content";
+        max-width: 1000px;
+        margin: auto;
+    }
+    .headerNav{
+        display: grid;
+        grid-template-areas: "headerNavLogo" 
+        "headerNavSignin-link";
+        grid-area: headerNav;
+        color: black;
+        align-items: center;
+        align-self: center;
+        justify-items: center;
+        justify-content: center;
+        align-content: center;
+    }
+    .headerNavLogo{
+        grid-area: headerNavLogo;
+        width: 500%;
+    }
+    .headerNavLogo img{
+        height: 30px;
+        width: 100px;
+    }
+    .headerNavSignin-link{
+        grid-area: headerNavSignin-link;
+        text-align: center;
+        text-decoration: none;
+    }
+    .requestForm{
+        display: grid;
+        padding-top: 40px;
+        grid-template-areas: "nameRequest"
+        "aboutRequest"
+        "category";
+        max-width: min-content;
+        background-color: burlywood;
+        margin: auto;
+        align-items: center;
+        align-self: center;
+        justify-items: center;
+        justify-content: center;
+        align-content: center;
+        grid-gap: 15px;
+    }
+    .nameRequest{
+        grid-area: nameRequest;
+    }
+    .aboutRequest{
+        grid-area: aboutRequest;
+    }
+    .category{
+        grid-area: category;
+    }
+}

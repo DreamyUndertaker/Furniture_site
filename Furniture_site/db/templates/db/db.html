@@ -1,0 +1,48 @@
+{% extends 'db/layout_db.html' %}
+{% load static %}
+{% block title %} список записей {% endblock %}
+{% block header %}
+<div class="headerNav">
+    <div class="headerNavLogo">
+        <img src="{% static 'home/img/Logo.png' %}" alt="" />
+    </div>
+    <div class="headerNavSignin-link">
+        <a href="{% url 'create' %}">Добавить запись</a>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="content">
+    {% if db %}
+        {% for el in db %}
+            <div class="article">
+                <h3>
+                    {{ el.title }}
+                </h3>
+                <h5>
+                    {{ el.full_text }}
+                </h5>
+            </div>
+            <div class="persons">
+                <h3>
+                    {{ el.surnamePersons }}
+                </h3>
+                <h3>
+                    {{ el.namePersons }}
+                </h3>
+                <h3>
+                    {{ el.fatherNamePersons }}
+                </h3>
+                <h3>
+                    {{ el.jobTitlePersons }}
+                </h3>
+                <h3>
+                    {{ el.salaryPersons }}
+                </h3>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>У вас нет заявок</p>
+    {% endif %}
+</div>
+{% endblock %}

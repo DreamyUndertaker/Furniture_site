@@ -1,0 +1,67 @@
+{% extends 'db/layout_db.html' %} 
+{% load static %} 
+{% block title %} Добавление записи {% endblock %} 
+{% block header %}
+<div class="headerNav">
+    <div class="headerNavLogo">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'home/img/Logo.png' %}" alt="" />
+        </a>
+    </div>
+</div>
+{% endblock %} 
+{% block content %}
+<div class="contentDB">
+    <form action="results" method="post" content='text/html; charset=UTF-8' accept-charset="UTF-8" class="requestForm">
+        {% csrf_token %} 
+        <div class="ArticleForm">
+            <h5>Заявки</h5>
+            {{ formArticle.title }} 
+            {{ formArticle.full_text }} 
+        </div>
+        <div class="PersonForm">
+            <h5>Сотрудники банка</h5>
+            {{ formPersons.surnamePersons }} 
+            {{ formPersons.namePersons }} 
+            {{ formPersons.fatherNamePersons }} 
+            {{ formPersons.jobTitlePersons }} 
+            {{ formPersons.salaryPersons }}
+        </div>
+        <div class="DepositesForm">
+            <h5>Виды вкладов</h5>
+            {{ formDeposites.depositeCode }}
+            {{ formDeposites.minDepositePeriod }}
+            {{ formDeposites.minDepositeValue }}
+            {{ formDeposites.currencyCode }}
+            {{ formDeposites.interestRate }}
+        </div>
+        <div class="ClientsForm">
+            <h5>Клиенты банка</h5>
+            {{ formClients.surnameClient }}
+            {{ formClients.nameClient }}
+            {{ formClients.fatherNameClient }}
+        </div>
+        <div class="ExchangeRatesForm">
+            <h5>Обменный курс</h5>
+            {{ formExchangeRates.ratesName }}
+            {{ formExchangeRates.exchangeRate }}
+        </div>
+        <div class="DepositsRegistrationForm">
+            <h5>Регистрация вклада</h5>
+            {{ formDepositsRegistration.surnameClient }}
+            {{ formDepositsRegistration.nameClient }}
+            {{ formDepositsRegistration.fatherNameClient }}
+            {{ formDepositsRegistration.depositeCode }}
+            {{ formDepositsRegistration.depositeDateStart }}
+            {{ formDepositsRegistration.depositeDateEnd }}
+            {{ formDepositsRegistration.depositeSum }}
+            {{ formDepositsRegistration.depositeStatus }}
+            {{ formDepositsRegistration.surnamePersons }}
+            {{ formDepositsRegistration.namePersons }}
+            {{ formDepositsRegistration.fatherNamePersons }}
+        </div>
+        <span>{{ error }}</span>
+        <button type="submit" class="">Добавить</button>
+    </form>
+</div>
+{% endblock %}
