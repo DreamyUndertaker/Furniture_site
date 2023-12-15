@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block header %}
-    <div class="container-fluid" style="padding-bottom: 20px; border-bottom: 1px solid black; max-width: 1440px; padding-top: 10px;">
+    <div class="container-fluid" style="padding-bottom: 20px; border-bottom: 3px solid black; max-width: 1440px;">
         <div class="row align-items-center">
             <div class="headerSearch col-5" >
                 <i class="fa fa-search w3-xxlarge" class="rounded float-start"></i>
@@ -11,7 +11,7 @@
                 <a href="{% url 'home' %}"><img src="{% static 'home/img/Logo.png' %}" alt="" class="rounded float-center "></a>
             </div>
             <div class="headerProfile-cart col-5">
-                <a href="{% url 'registration' %}"><i class="fa fa-male w3-xxlarge rounded float-end"></i></a>
+                <i class="fa fa-male w3-xxlarge rounded float-end"></i>
             </div>
             <div class="headerProfile-person col-1">
                 <a href="{% url 'db' %}"><i class="glyphicon glyphicon-menu-hamburger w3-xxlarge rounded float-end"></i></a>
@@ -54,69 +54,29 @@
     </div>
 {% endblock %}
 {% block content %}
-<div class="container-fluid" style="max-width: 1465px;">
-    <div class="row">
-        <div class="col">
-            <img src="{% static 'home/img/content.png' %}" alt="" class="rounded mx-auto d-block" style="padding-top: 20px; padding-bottom: 20px;">
-        </div>
+<div class="container-fluid px-4" style="padding-bottom: 20px; border-bottom: 3px solid black; max-width: 1440px; border-top: 3px solid black;">
+    <div class="col">
+        <form action="{% url 'db' %}" class="form" style="padding: 5px;">
+            <h3 class="formHeader">Войдите в аккаунт</h3>
+            <input type="text" name="email" id="email" class="email row " placeholder="email" style="margin: 5px;"/>
+            <input
+                type="password"
+                name="password"
+                id="password"
+                class="password row"
+                placeholder="password"
+                style="margin: 5px;"
+            />
+            <input type="submit" value="Войти" class="w3-button w3-green" style="margin: 5px;"/>
+        </form>
     </div>
-    <div class="row" style="max-width: 1440px; ">
-        <div class="fs-1">
-            <p>Новая керамика</p>
+    <div class="col fs-3">
+        <div class="linkToRegistration">
+            <a href="{% url 'registration' %}" class="text-decoration-underline" style="color: black;">Или зарегистрироваться</a>
         </div>
-    </div>
-    <div class="row fs-1" style="max-width: 1440px; padding-left: 25px; padding-bottom: 20px;">
-        <div class="col">
-            <div class="row">
-                <img src="{% static 'home/img/Parent1.png' %}" alt="">
-            </div>
-            <div class="row" style="padding-left: 5px; padding-top: 10px;">
-                <a href="{% url 'productListenning' %}" class="text-decoration-none" style="padding-left: 5px; padding-top: 5px; color: black;">
-                    The Dandy chair <br>
-                    £250
-                </a>
-            </div>
-        </div>
-        <div class="col">
-            <div class="row">
-                <img src="{% static 'home/img/Parent2.png' %}" alt="">
-            </div>
-            <div class="row" style="padding-left: 5px; padding-top: 10px;">
-                <a href="{% url 'productListenning' %}" class="text-decoration-none" style="padding-left: 5px; padding-top: 5px; color: black;">
-                    Rustic Vase Set <br>
-                    £155
-                </a>
-            </div>
-        </div>
-        <div class="col">
-            <div class="row">
-                <img src="{% static 'home/img/Parent3.png' %}" alt="">
-            </div>
-            <div class="row" style="padding-left: 5px; padding-top: 10px;">
-                <a href="{% url 'productListenning' %}" class="text-decoration-none" style="padding-left: 5px; padding-top: 5px; color: black;">
-                    The Silky Vase <br>
-                    £125
-                </a>
-            </div>
-        </div>
-        <div class="col">
-            <div class="row">
-                <img src="{% static 'home/img/Parent4.png' %}" alt="">
-            </div>
-            <div class="row" style="padding-left: 5px; padding-top: 10px;">
-                <a href="{% url 'productListenning' %}" class="text-decoration-none" style="padding-left: 5px; padding-top: 5px; color: black;">
-                    The Lucy Lamp <br>
-                    £399
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <img src="{% static 'home/img/Email-sign-up.png' %}" alt="" class="rounded mx-auto d-block">
-        </div>
-    </div>
+     </div>
 </div>
+
 {% endblock %}
 {% block footer %}
 

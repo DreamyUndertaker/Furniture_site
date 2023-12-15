@@ -1,0 +1,267 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block header %}
+
+    <div class="container-fluid" style="padding-top: 10px; max-width: 1440px; border-bottom: 1px black solid;">
+        <div class="row align-items-center">
+            <div class="headerLogo col-1" style="padding-bottom: 10px;">
+                <a href="{% url 'home' %}"><img src="{% static 'home/img/Logo.png' %}" alt="" class="rounded float-center "></a>
+            </div>
+            <div class="headerNav-plantPots col fs-3">
+                <p>
+                    <a href="" style="text-decoration: none; color: black;">Горшки для растений</a>
+                </p>
+            </div>
+            <div class="headerNav-ceramics col fs-3">
+                <p>
+                    <a href="" style="text-decoration: none; color: black;">Керамика</a>
+                </p>
+            </div>
+            <div class="headerNav-tables col fs-3">
+                <p>
+                    <a href="" style="text-decoration: none; color: black;">Столы</a>
+                </p>
+            </div>
+            <div class="headerNav-chairs col fs-3">
+                <p>
+                    <a href="" style="text-decoration: none; color: black;">Стулья</a>
+                </p>
+            </div>
+            <div class="headerNav-tabelware col fs-3">
+                <p>
+                    <a href="" style="text-decoration: none; color: black;">Поусда</a>
+                </p>
+            </div>
+            <div class="headerNav-cutlery col fs-3">
+                <p>
+                    <a href="" style="text-decoration: none; color: black;">Столовые приборы</a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="container-fluid" style="max-width: 1440px; padding-bottom: 30px; padding-top: 30px;">
+    <div class="row">
+        <div class="col">
+            <img src="{% static 'home/img/Parent5.png' %}" alt="" >
+        </div>
+        <div class="col">
+            <div class="fs-1">
+                <p>The Dandy Chair</p>
+            </div>
+            <div class="fs-1">
+                <p>£250</p>
+            </div>
+            <div class="fs-2">
+                <p>
+                    Product description <br> <br>
+A timeless design, with premium materials features as one of our most popular and iconic pieces. The dandy chair is perfect for any stylish living space with beech legs and lambskin leather upholstery.
+                </p>
+            </div>
+            <div class="fs-3">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                          <th scope="col">Характеристики</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Высота</td>
+                          <td>110cv</td>
+                        </tr>
+                        <tr>
+                          <td>Ширина</td>
+                          <td>75см</td>
+                        </tr>
+                        <tr>
+                          <td>Глубина</td>
+                          <td>50см</td>
+                        </tr>
+                      </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <p>
+                    <p class="fs-3">Количество</p>
+                </p><div class="input-group" style="width: 150px; padding-top: 20px;">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+                          <span class="glyphicon glyphicon-minus"></span>
+                        </button>
+                    </span>
+                    <input type="text" name="quant[2]" class="form-control input-number" value="1" min="1" max="100">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </span>
+                </div>
+              <p></p>
+            </div>
+            <div class="col" style="padding-top: 30px;">
+                <button type="button" class="btn btn-primary btn-lg">Добавить в корзину</button>
+                <button type="button" class="btn btn-secondary btn-lg">Созранить в закладки</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.btn-number').click(function(e){
+     e.preventDefault();
+     
+     fieldName = $(this).attr('data-field');
+     type      = $(this).attr('data-type');
+     var input = $("input[name='"+fieldName+"']");
+     var currentVal = parseInt(input.val());
+     if (!isNaN(currentVal)) {
+         if(type == 'minus') {
+             
+             if(currentVal > input.attr('min')) {
+                 input.val(currentVal - 1).change();
+             } 
+             if(parseInt(input.val()) == input.attr('min')) {
+                 $(this).attr('disabled', true);
+             }
+ 
+         } else if(type == 'plus') {
+ 
+             if(currentVal < input.attr('max')) {
+                 input.val(currentVal + 1).change();
+             }
+             if(parseInt(input.val()) == input.attr('max')) {
+                 $(this).attr('disabled', true);
+             }
+ 
+         }
+     } else {
+         input.val(0);
+     }
+ });
+ $('.input-number').focusin(function(){
+    $(this).data('oldValue', $(this).val());
+ });
+ $('.input-number').change(function() {
+     
+     minValue =  parseInt($(this).attr('min'));
+     maxValue =  parseInt($(this).attr('max'));
+     valueCurrent = parseInt($(this).val());
+     
+     name = $(this).attr('name');
+     if(valueCurrent >= minValue) {
+         $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+     } else {
+         alert('Sorry, the minimum value was reached');
+         $(this).val($(this).data('oldValue'));
+     }
+     if(valueCurrent <= maxValue) {
+         $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+     } else {
+         alert('Sorry, the maximum value was reached');
+         $(this).val($(this).data('oldValue'));
+     }
+     
+     
+ });
+ $(".input-number").keydown(function (e) {
+         // Allow: backspace, delete, tab, escape, enter and .
+         if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+              // Allow: Ctrl+A
+             (e.keyCode == 65 && e.ctrlKey === true) || 
+              // Allow: home, end, left, right
+             (e.keyCode >= 35 && e.keyCode <= 39)) {
+                  // let it happen, don't do anything
+                  return;
+         }
+         // Ensure that it is a number and stop the keypress
+         if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+             e.preventDefault();
+         }
+     });
+ </script>
+{% endblock %}
+{% block footer %}
+
+<div class="container-fluid fs-4" style="padding-top: 50px; background-color: #2A254B; color: aliceblue; padding-left: 80px; max-width: 1440px; padding-bottom: 40px;">
+    <div class="col">
+        <div class="row">
+            <div class="col fs-1">
+                <p>Меню</p>
+            </div>
+            <div class="col fs-1">
+                <p>Категории</p>
+            </div>
+            <div class="col fs-1">
+                <p>Наша компания</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Новые поставки</p>
+            </div>
+            <div class="col">
+                <p>Посуда</p>
+            </div>
+            <div class="col">
+                <p>О нас</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Часто продаваемое</p>
+            </div>
+            <div class="col">
+                <p>Мебель</p>
+            </div>
+            <div class="col">
+                <p>Вакансии</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Часто просматриваемое</p>
+            </div>
+            <div class="col">
+                <p>Товары для дома</p>
+            </div>
+            <div class="col">
+                <p>Связаться с нами</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Популярное на неделе</p>
+            </div>
+            <div class="col">
+                <p>Горшки для растений</p>
+            </div>
+            <div class="col">
+                <p>Конфиденциальность</p>
+            </div>
+        </div>
+        <div class="row" style="padding-bottom: 10px;">
+            <div class="col">
+                <p>Весь ассортимент</p>
+            </div>
+            <div class="col">
+                <p>Стулья</p>
+            </div>
+            <div class="col">
+                <p>Политика возврата</p>
+            </div>
+        </div>
+        <div class="row" style="border-top: 2px solid white; padding-top: 25px; max-width: 90%;" >
+            <div class="col align-items-start fs-3" style="padding-top: 10px;">
+                <p>Copyright 2022 Avion LTD</p>
+            </div>
+            <div class="col align-items-end">
+                <img src="{% static 'home/img/SocialLinks.png' %}" alt="" class=" rounded float-end">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

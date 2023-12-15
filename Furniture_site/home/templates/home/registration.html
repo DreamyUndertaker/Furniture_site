@@ -1,0 +1,77 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block header %}
+    <div class="container-fluid" style="padding-bottom: 20px; border-bottom: 3px solid black; max-width: 1440px;">
+        <div class="row align-items-center">
+            <div class="headerSearch col-5" >
+                <i class="fa fa-search w3-xxlarge" class="rounded float-start"></i>
+            </div>
+            <div class="headerLogo col-1" >
+                <a href="{% url 'home' %}"><img src="{% static 'home/img/Logo.png' %}" alt="" class="rounded float-center "></a>
+            </div>
+            <div class="headerProfile-cart col-5">
+                <i class="fa fa-male w3-xxlarge rounded float-end"></i>
+            </div>
+            <div class="headerProfile-person col-1">
+                <a href="{% url 'registration' %}"><i class="glyphicon glyphicon-menu-hamburger w3-xxlarge rounded float-end"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="padding-top: 10px; max-width: 1440px;">
+        <div class="row align-items-center">
+            <div class="headerNav-plantPots col fs-3">
+                <p>
+                    <a href="" style="text-decoration: none; color: black;">Горшки для растений</a>
+                </p>
+            </div>
+            <div class="headerNav-ceramics col fs-3">
+                <p>
+                    <a href="" style="text-decoration: none; color: black;">Керамика</a>
+                </p>
+            </div>
+            <div class="headerNav-tables col fs-3">
+                <p>
+                    <a href="" style="text-decoration: none; color: black;">Столы</a>
+                </p>
+            </div>
+            <div class="headerNav-chairs col fs-3">
+                <p>
+                    <a href="" style="text-decoration: none; color: black;">Стулья</a>
+                </p>
+            </div>
+            <div class="headerNav-tabelware col fs-3">
+                <p>
+                    <a href="" style="text-decoration: none; color: black;">Поусда</a>
+                </p>
+            </div>
+            <div class="headerNav-cutlery col fs-3">
+                <p>
+                    <a href="" style="text-decoration: none; color: black;">Столовые приборы</a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="container-fluid align-items-center" style="padding-bottom: 20px; border-bottom: 3px solid black; max-width: 1440px; border-top: 3px solid black;"> 
+    <div class="row">
+        <h1>Создайте аккаунт</h1>
+    </div>
+    <div class="row fs-3">
+        <p>Пожалуйста зарегистрируйтесь используя следующую форму</p>
+    </div>
+    <div class="row fs-4 ">
+        <form action="." method="post" >
+            {{ user_form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Создать аккаунт" class="w3-button w3-green"></p>
+        </form>
+    </div>
+    
+    
+    <div class="linkToSignin">
+        <a href="{% url 'signin' %}">Или войти</a>
+    </div>
+</div>
+{% endblock %}
